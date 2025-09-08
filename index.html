@@ -34,30 +34,7 @@
     h1 { color: #1e5fa3; margin-top: 20px; }
     p { color: #b3c7e6; }
 
-    .chat-container {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    button {
-      background-color: #1e5fa3;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 2px 12px rgba(30,95,163,0.18);
-      transition: background 0.3s, box-shadow 0.4s, transform 0.3s;
-    }
-    button:hover {
-      background-color: #163d5c;
-      box-shadow: 0 4px 24px rgba(30,95,163,0.28);
-      transform: scale(1.04);
-    }
+/* Chat will appear automatically */
 
     footer {
       margin-top: 80px;
@@ -83,8 +60,6 @@
   </header>
 
   <h1>Welcome to our Support Chat</h1>
-  <p>Press the button to start a chat with a representative.</p>
-
   <div style="margin: 48px auto; max-width: 600px; background: rgba(30,95,163,0.12); border-radius: 18px; box-shadow: 0 2px 12px rgba(30,95,163,0.10); padding: 32px 24px; display: flex; align-items: center; gap: 24px;">
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#1e5fa3" viewBox="0 0 24 24">
       <path d="M12 2a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/>
@@ -102,13 +77,7 @@
   </footer>
 
   <!-- Contenedor del chat -->
-  <div class="chat-container">
-    <span style="display: block; margin-bottom: 16px; font-size: 48px; color: #1e5fa3;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 2C6.477 2 2 6.477 2 12v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/>
-      </svg>
-    </span>
-    <button id="openChat">Chat Now!</button>
+   <div>
     <div id="chatContainer"></div>
   </div>
 
@@ -122,15 +91,18 @@
 
   <script>
     // 🔹 Cargar script de CXone
-    (function(n,u){
-      window.CXoneDfo = n;
-      window[n] = window[n] || function() { (window[n].q = window[n].q || []).push(arguments) };
-      window[n].u = u;
-      let e = document.createElement("script");
-      e.type = "module";
-      e.src = u + "?" + Math.round(Date.now()/1e3/3600);
-      document.head.appendChild(e);
+   (function(n,u){
+    window.CXoneDfo=n,
+    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},window[n].u=u,
+    e=document.createElement("script"),e.type="module",e.src=u+"?"+Math.round(Date.now()/1e3/3600),
+    document.head.appendChild(e)
     })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
+
+    cxone('init', '4847', {
+        rulesEngine: false,
+        analyticsEvents: false
+    });
+    cxone('guide', 'init', '3f35696a-7ee7-4e7b-8db9-b76d1a6c64de');
 
     // 🔹 Inicializar CXone
     const targetSettings = {
@@ -160,10 +132,6 @@
     }
     initCXone();
 
-    document.getElementById('openChat').addEventListener('click', function(){
-      if (typeof cxone !== 'undefined') cxone('guide','toggle');
-    });
-
     // 🔹 Cargar datos del cliente desde la URL
     document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
@@ -176,3 +144,4 @@
 
 </body>
 </html>
+
