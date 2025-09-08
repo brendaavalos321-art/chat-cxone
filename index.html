@@ -94,14 +94,14 @@
     <span style="display: block; margin-bottom: 16px; font-size: 48px; color: #1e5fa3;">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/></svg>
     </span>
-    <button id="openChat">Abrir Chat</button>
+    <button id="openChat">Chat</button>
   </div>
 
   <!-- Banner decorativo relacionado con soporte -->
   <div style="margin: 48px auto 0 auto; max-width: 600px; background: rgba(30,95,163,0.12); border-radius: 18px; box-shadow: 0 2px 12px rgba(30,95,163,0.10); padding: 32px 24px; display: flex; align-items: center; gap: 24px;">
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#1e5fa3" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/></svg>
     <div style="text-align: left;">
-      <h2 style="margin: 0 0 8px 0; color: #1e5fa3; font-size: 1.5em; font-family: 'Montserrat', Arial, sans-serif;">¿Necesitas ayuda?</h2>
+      <h2 style="margin: 0 0 8px 0; color: #1e5fa3; font-size: 1.5em; font-family: 'Montserrat', Arial, sans-serif;">Need Help?</h2>
       <p style="margin: 0; color: #e0e6ed; font-size: 1.1em;">Our support team is ready to assist you anytime. Start the chat and receive personalized attention!
 </p>
     </div>
@@ -114,9 +114,12 @@
 <script>
 (function(n,u){
   window.CXoneDfo=n,
-  window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},window[n].u=u,
-  e=document.createElement("script"),e.type="module",e.src=u+"?"+Math.round(Date.now()/1e3/3600),
-  document.head.appendChild(e)
+  window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},
+  window[n].u=u;
+  let e=document.createElement("script");
+  e.type="module";
+  e.src=u+"?"+Math.round(Date.now()/1e3/3600);
+  document.head.appendChild(e);
 })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
 cxone('init', '4847');
@@ -150,9 +153,11 @@ document.getElementById('openChat').addEventListener('click', function(){
   if (typeof cxone !== 'undefined') {
     cxone('guide','open');
   }
+});
 </script>  <!-- Pega tu bloque <script> ... </script> aquí abajo -->
 
 </body>
 </html>
+
 
 
