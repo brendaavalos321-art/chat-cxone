@@ -119,6 +119,8 @@
   document.head.appendChild(e)
 })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
+cxone('init', '4847');
+
 // 🔹 Target Settings JSON
 const targetSettings = {
   channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe', // tu channelId
@@ -134,25 +136,22 @@ const targetSettings = {
     customerEmail: '{email}',
     customerPhone: '{phone}',
     customerDepartment: '{department}'
-
   },
   apiEndpoints: {
     customerLookup: 'https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz'
   }
 };
 
-// Inicializamos CXone con Target Settings
-cxone('init', '4847');
-cxone('guide','setLocale','en');
+// inicializar el chat con configuración
 cxone('guide','init', targetSettings);
 
-// Conectamos botón para abrir el chat
+// Botón abrir chat
 document.getElementById('openChat').addEventListener('click', function(){
   if (typeof cxone !== 'undefined') {
     cxone('guide','open');
   }
-});
 </script>  <!-- Pega tu bloque <script> ... </script> aquí abajo -->
 
 </body>
 </html>
+
