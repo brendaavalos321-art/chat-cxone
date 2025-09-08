@@ -1,0 +1,23 @@
+{
+  "targets": [
+    {
+      "channelId": "chat_b841f8b5-b0cc-42a0-b537-733f33351ebe",
+      "locale": "en",
+      "defaultSkill": "customer_service",
+      "labels": {
+        "customerName": "{firstName}",
+        "customerEmail": "{email}",
+        "customerPhone": "{phone}",
+        "customerDepartment": "{department}"
+      },
+      "apiEndpoints": {
+        "customerLookup": "https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz"
+      },
+      "hours": {
+        "open": "06:00",
+        "close": "21:00",
+        "timezone": "EST"
+      }
+    }
+  ]
+}
