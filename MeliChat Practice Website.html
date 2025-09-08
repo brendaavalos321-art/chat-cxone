@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat CXone</title>
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      /* Fondo degradado negro a azul marino */
+      background: linear-gradient(135deg, #0d0d0d 60%, #142d4c 100%);
+      color: #e0e6ed;
+      text-align: center;
+      transition: background 0.6s;
+    }
+
+    header {
+      background: transparent;
+      padding: 32px 0 12px 0;
+      margin-bottom: 0;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    header img {
+      max-height: 120px;
+      width: auto;
+      border-radius: 0;
+      box-shadow: none;
+      transition: transform 0.4s;
+      background: transparent;
+    }
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      color: #1e5fa3; /* azul profesional */
+      margin-top: 20px;
+    }
+
+    p {
+      color: #b3c7e6;
+    }
+
+    .chat-container {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      background-color: #1e5fa3; /* azul profesional */
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(30,95,163,0.18);
+      transition: background 0.3s, box-shadow 0.4s, transform 0.3s;
+    }
+
+    button:hover {
+      background-color: #163d5c; /* azul marino más oscuro */
+      box-shadow: 0 4px 24px rgba(30,95,163,0.28);
+      transform: scale(1.04);
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 10px;
+      font-size: 14px;
+      color: #7a8ca5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Logo CXone -->
+  <img src="CxOne.png" alt="CXone Logo" />
+  </header>
+
+  <h1>Bienvenido a nuestro Chat de Soporte</h1>
+  <p>Presiona el botón para iniciar un chat con un representante.</p>
+
+
+  <div class="chat-container">
+    <!-- Icono decorativo de soporte (ejemplo: Font Awesome headset) -->
+    <span style="display: block; margin-bottom: 16px; font-size: 48px; color: #1e5fa3;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/></svg>
+    </span>
+    <button id="openChat">Abrir Chat</button>
+  </div>
+
+  <!-- Banner decorativo relacionado con soporte -->
+  <div style="margin: 48px auto 0 auto; max-width: 600px; background: rgba(30,95,163,0.12); border-radius: 18px; box-shadow: 0 2px 12px rgba(30,95,163,0.10); padding: 32px 24px; display: flex; align-items: center; gap: 24px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#1e5fa3" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/></svg>
+    <div style="text-align: left;">
+      <h2 style="margin: 0 0 8px 0; color: #1e5fa3; font-size: 1.5em; font-family: 'Montserrat', Arial, sans-serif;">¿Necesitas ayuda?</h2>
+      <p style="margin: 0; color: #e0e6ed; font-size: 1.1em;">Nuestro equipo de soporte está listo para ayudarte en cualquier momento. ¡Inicia el chat y recibe atención personalizada!</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 - Chat CXone demo by Melissa
+  </footer>
+
+<script>
+(function(n,u){
+window.CXoneDfo=n,
+window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},window[n].u=u,
+e=document.createElement("script"),e.type="module",e.src=u+"?"+Math.round(Date.now()/1e3/3600),
+document.head.appendChild(e)
+})('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
+
+cxone('init', '4847');
+cxone('guide','setLocale','en'); // Configura el idioma del chat a inglés (en)
+cxone('guide','init', {
+    channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe'
+  });
+
+// Si tu snippet expone un método "open", lo conectamos al botón
+document.getElementById('openChat').addEventListener('click', function(){
+  if (typeof cxone !== 'undefined') {
+    cxone('guide','open');
+  }
+});
+
+<!-- 🔹 Este archivo es lo que abrirá el agente cuando uses POPURL en CXone. -->
+</script>  <!-- Pega tu bloque <script> ... </script> aquí abajo -->
+
+</body>
+</html>
