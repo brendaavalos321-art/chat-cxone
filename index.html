@@ -10,7 +10,6 @@
     body {
       margin: 0;
       font-family: 'Montserrat', Arial, sans-serif;
-      /* Fondo degradado negro a azul marino */
       background: linear-gradient(135deg, #0d0d0d 60%, #142d4c 100%);
       color: #e0e6ed;
       text-align: center;
@@ -21,39 +20,30 @@
       background: transparent;
       padding: 32px 0 12px 0;
       margin-bottom: 0;
-      box-shadow: none;
-      border-radius: 0;
     }
 
     header img {
       max-height: 120px;
       width: auto;
-      border-radius: 0;
-      box-shadow: none;
       transition: transform 0.4s;
-      background: transparent;
     }
     header img:hover {
       transform: scale(1.05);
     }
 
-    h1 {
-      color: #1e5fa3; /* azul profesional */
-      margin-top: 20px;
-    }
-
-    p {
-      color: #b3c7e6;
-    }
+    h1 { color: #1e5fa3; margin-top: 20px; }
+    p { color: #b3c7e6; }
 
     .chat-container {
       margin-top: 50px;
       display: flex;
       justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
 
     button {
-      background-color: #1e5fa3; /* azul profesional */
+      background-color: #1e5fa3;
       color: white;
       border: none;
       padding: 15px 30px;
@@ -63,9 +53,8 @@
       box-shadow: 0 2px 12px rgba(30,95,163,0.18);
       transition: background 0.3s, box-shadow 0.4s, transform 0.3s;
     }
-
     button:hover {
-      background-color: #163d5c; /* azul marino más oscuro */
+      background-color: #163d5c;
       box-shadow: 0 4px 24px rgba(30,95,163,0.28);
       transform: scale(1.04);
     }
@@ -76,34 +65,35 @@
       font-size: 14px;
       color: #7a8ca5;
     }
+
+    .client-info {
+      margin-top: 24px;
+      color: #e0e6ed;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Logo CXone -->
-  <img src="CxOne.png" alt="CXone Logo" />
+    <img src="CxOne.png" alt="CXone Logo" />
   </header>
 
   <h1>Welcome to our Support Chat</h1>
   <p>Press the button to start a chat with a representative.</p>
 
-
-  <div class="chat-container">
-    <!-- Icono decorativo de soporte (ejemplo: Font Awesome headset) -->
-    <span style="display: block; margin-bottom: 16px; font-size: 48px; color: #1e5fa3;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/></svg>
-    </span>
-    <button id="openChat">Chat</button>
-  </div>
-
-  <!-- Banner decorativo relacionado con soporte -->
-  <div style="margin: 48px auto 0 auto; max-width: 600px; background: rgba(30,95,163,0.12); border-radius: 18px; box-shadow: 0 2px 12px rgba(30,95,163,0.10); padding: 32px 24px; display: flex; align-items: center; gap: 24px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#1e5fa3" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/></svg>
+  <div style="margin: 48px auto; max-width: 600px; background: rgba(30,95,163,0.12); border-radius: 18px; box-shadow: 0 2px 12px rgba(30,95,163,0.10); padding: 32px 24px; display: flex; align-items: center; gap: 24px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#1e5fa3" viewBox="0 0 24 24">
+      <path d="M12 2a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/>
+    </svg>
     <div style="text-align: left;">
-      <h2 style="margin: 0 0 8px 0; color: #1e5fa3; font-size: 1.5em; font-family: 'Montserrat', Arial, sans-serif;">Need Help?</h2>
-      <p style="margin: 0; color: #e0e6ed; font-size: 1.1em;">Our support team is ready to assist you anytime. Start the chat and receive personalized attention!
-</p>
+      <h2 style="margin: 0 0 8px 0; color: #1e5fa3; font-size: 1.5em;">Need Help?</h2>
+      <p style="margin: 0; color: #e0e6ed; font-size: 1.1em;">
+        Our support team is ready to assist you anytime. Start the chat and receive personalized attention!
+      </p>
     </div>
   </div>
 
@@ -111,53 +101,78 @@
     © 2025 - Chat CXone demo by Melissa A.
   </footer>
 
-<script>
-(function(n,u){
-  window.CXoneDfo=n,
-  window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},
-  window[n].u=u;
-  let e=document.createElement("script");
-  e.type="module";
-  e.src=u+"?"+Math.round(Date.now()/1e3/3600);
-  document.head.appendChild(e);
-})('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
+  <!-- Contenedor del chat -->
+  <div class="chat-container">
+    <span style="display: block; margin-bottom: 16px; font-size: 48px; color: #1e5fa3;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C6.477 2 2 6.477 2 12v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/>
+      </svg>
+    </span>
+    <button id="openChat">Chat Now!</button>
+    <div id="chatContainer"></div>
+  </div>
 
-cxone('init', '4847');
+  <!-- Contenedor de datos del cliente -->
+  <div class="client-info">
+    <p>Name: <span id="clientName"></span></p>
+    <p>Email: <span id="clientEmail"></span></p>
+    <p>Phone: <span id="clientPhone"></span></p>
+    <p>Department: <span id="clientDept"></span></p>
+  </div>
 
-// 🔹 Target Settings JSON
-const targetSettings = {
-  channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe', // tu channelId
-  locale: 'en',       // idioma del chat
-  defaultSkill: 'customer_service', // skill por defecto
-  hours: {
-    open: '06:00',
-    close: '21:00',
-    timezone: 'EST'
-  },
-  labels: {
-    customerName: '{firstName}',
-    customerEmail: '{email}',
-    customerPhone: '{phone}',
-    customerDepartment: '{department}'
-  },
-  apiEndpoints: {
-    customerLookup: 'https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz'
-  }
-};
+  <script>
+    // 🔹 Cargar script de CXone
+    (function(n,u){
+      window.CXoneDfo = n;
+      window[n] = window[n] || function() { (window[n].q = window[n].q || []).push(arguments) };
+      window[n].u = u;
+      let e = document.createElement("script");
+      e.type = "module";
+      e.src = u + "?" + Math.round(Date.now()/1e3/3600);
+      document.head.appendChild(e);
+    })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
-// inicializar el chat con configuración
-cxone('guide','init', targetSettings);
+    // 🔹 Inicializar CXone
+    const targetSettings = {
+      channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe',
+      target: '#chatContainer',
+      locale: 'en',
+      defaultSkill: 'customer_service',
+      hours: { open: '06:00', close: '21:00', timezone: 'EST' },
+      labels: {
+        customerName: '{firstName}',
+        customerEmail: '{email}',
+        customerPhone: '{phone}',
+        customerDepartment: '{department}'
+      },
+      apiEndpoints: {
+        customerLookup: 'https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz'
+      }
+    };
 
-// Botón abrir chat
-document.getElementById('openChat').addEventListener('click', function(){
-  if (typeof cxone !== 'undefined') {
-    cxone('guide','open');
-  }
-});
-</script>  <!-- Pega tu bloque <script> ... </script> aquí abajo -->
+    function initCXone() {
+      if (typeof cxone !== 'undefined') {
+        cxone('init', '4847');
+        cxone('guide','init', targetSettings);
+      } else {
+        setTimeout(initCXone, 200);
+      }
+    }
+    initCXone();
+
+    document.getElementById('openChat').addEventListener('click', function(){
+      if (typeof cxone !== 'undefined') cxone('guide','toggle');
+    });
+
+    // 🔹 Cargar datos del cliente desde la URL
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById('clientName').innerText = params.get('name') || '';
+      document.getElementById('clientEmail').innerText = params.get('email') || '';
+      document.getElementById('clientPhone').innerText = params.get('phone') || '';
+      document.getElementById('clientDept').innerText = params.get('dept') || '';
+    });
+  </script>
 
 </body>
 </html>
-
-
-
