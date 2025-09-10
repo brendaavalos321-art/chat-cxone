@@ -118,6 +118,13 @@
       if (typeof cxone !== 'undefined') {
         cxone('init', '4847');
         cxone('guide','init', targetSettings);
+        // hide activity bar
+    cxone('chat','setCustomCss', '[data-selector="ACTIVITY_BAR"] { display: none; }');
+
+    // BrandEmbassy legacy configs
+    if (typeof brandembassy !== 'undefined') {
+      brandembassy('enableCloseIcon', true);
+      brandembassy('showCustomerAvatar');
       } else {
         setTimeout(initCXone, 200);
       }
@@ -136,5 +143,6 @@
 
 </body>
 </html>
+
 
 
