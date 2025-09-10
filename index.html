@@ -123,13 +123,27 @@
       cxone('init', '4847');
       cxone('guide', 'init', targetSettings);
 
-      // 🔹 CSS personalizado unificado (solo ocultar barra gris)
-      cxone('chat', 'setCustomCss', `
-        [data-selector="ACTIVITY_BAR"] { 
-          display: none; 
-        }
-      `);
+     // 🔹 Aplicar CSS solo cuando el chat esté listo
+    cxone('on', 'chatReady', function() {
+      cxone('chat','setCustomCss', `
+    /* Fondo general del chat */
+    .cxone-chat-window { background-color: #ffffff !important; } /* blanco */
 
+    /* Barra superior del chat */
+    .cxone-chat-header { background-color: #000000 !important; color: #ffffff !important; } /* negra con texto blanco */
+
+    /* Burbujas de chat */
+    .cxone-chat-bubble.agent,
+    .cxone-chat-bubble.user { background-color: #000000 !important; color: #ffffff !important; } /* burbujas negras con texto blanco */
+
+    /* Botón de cerrar (X) */
+    .cxone-chat-close-button { display: block !important; color: #ffffff !important; font-size: 18px; cursor: pointer; }
+
+    /* Ocultar barra gris de actividad */
+    [data-selector="ACTIVITY_BAR"] { display: none; }
+  `);
+    });
+      
       // 🔹 Legacy BrandEmbassy configs
       if (typeof brandembassy !== 'undefined') {
         brandembassy('enableCloseIcon', true);
@@ -162,6 +176,7 @@
 
 </body>
 </html>
+
 
 
 
