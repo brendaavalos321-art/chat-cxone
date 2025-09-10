@@ -70,55 +70,41 @@
     <div id="chatContainer"></div>
   </div>
 
- <script>
-
-   (function(n,u){
-    window.CXoneDfo=n,
-    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},window[n].u=u,
-    e=document.createElement("script"),e.type="module",e.src=u+"?"+Math.round(Date.now()/1e3/3600),
-    document.head.appendChild(e)
+  <script>
+    // 🔹 Cargar script de CXone
+    (function(n,u){
+      window.CXoneDfo=n;
+      window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)};
+      window[n].u=u;
+      let e=document.createElement("script");
+      e.type="module";
+      e.src=u + "?" + Math.round(Date.now()/3600000);
+      document.head.appendChild(e);
     })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
-  const targetSettings = {
-  channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe',
-  target: '#chatContainer',
-  locale: 'en',
-  defaultSkill: 'mel_chat_no_agent',
-  hours: { open: '06:00', close: '21:00', timezone: 'EST' },
-  labels: {
-    customerName: '{firstName}',
-    customerEmail: '{email}',
-    customerPhone: '{phone}',
-    customerDepartment: '{department}'
-  },
-  apiEndpoints: {
-    customerLookup: 'https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz'
-  }
-};
+    // 🔹 Inicializar CXone y Guide
+    function initCXone() {
+      if (typeof cxone !== 'undefined') {
+        cxone('init', '4847');
 
-// 🔹 Inicializar CXone solo cuando esté cargado
-function initCXone() {
-  if (typeof cxone !== 'undefined') {
-    cxone('init', '4847');
-    cxone('guide', 'init');
-    cxone('guide', 'startChatEntrypoint', 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe');
+        // Inicializar Guide
+        cxone('guide', 'init');
 
-    // Aplicar CSS y labels cuando el chat esté listo
-    cxone('on', 'chatReady', function() {
-      cxone('chat', 'setCustomCss', '[data-selector="ACTIVITY_BAR"] {display: none !important}');
-      cxone('chat', 'setLabels', targetSettings.labels);
-    });
+        // Iniciar entrypoint del chat
+        cxone('guide', 'startChatEntrypoint', 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe');
 
-  } else {
-    setTimeout(initCXone, 200); // reintenta hasta que cxone esté disponible
-  }
-}
+        // 🔹 Aplicar CSS solo cuando el chat esté listo
+        cxone('on', 'chatReady', function() {
+          cxone('chat', 'setCustomCss', '[data-selector="ACTIVITY_BAR"] {display: none !important}');
+        });
 
-initCXone();
-</script>
+      } else {
+        setTimeout(initCXone, 200);
+      }
+    }
+
+    initCXone();
+  </script>
+
 </body>
 </html>
-
-
-
-
