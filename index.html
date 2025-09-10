@@ -82,14 +82,14 @@
   </div>
 
   <script>
-   // 🔹 Cargar script de CXone
+  // 🔹 Cargar script de CXone
   (function(n,u){
-    window.CXoneDfo=n,
-    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},
+    window.CXoneDfo=n;
+    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)};
     window[n].u=u;
     let e=document.createElement("script");
     e.type="module";
-    e.src=u+"?"+Math.round(Date.now()/1e3/3600);
+    e.src=u+"?"+Math.round(Date.now()/3600000);
     document.head.appendChild(e);
   })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
@@ -102,7 +102,7 @@
   // 🔹 Target Settings JSON
   const targetSettings = {
     channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe',
-    target: '#chatContainer',   // dónde se embebe el chat
+    target: '#chatContainer',
     locale: 'en',
     defaultSkill: 'customer_service',
     hours: { open: '06:00', close: '21:00', timezone: 'EST' },
@@ -117,71 +117,52 @@
     }
   };
 
- // 🔹 Inicializar CXone
-function initCXone() {
-  if (typeof cxone !== 'undefined') {
-    cxone('init', '4847');
-    cxone('guide', 'init', targetSettings);
+  // 🔹 Inicializar CXone
+  function initCXone() {
+    if (typeof cxone !== 'undefined') {
+      cxone('init', '4847');
+      cxone('guide', 'init', targetSettings);
 
-    // 🔹 CSS personalizado unificado
-    cxone('chat', 'setCustomCss', `
-      /* Ocultar barra gris de actividad */
-      [data-selector="ACTIVITY_BAR"] { 
-        display: none; 
+      // 🔹 CSS personalizado unificado (solo ocultar barra gris)
+      cxone('chat', 'setCustomCss', `
+        [data-selector="ACTIVITY_BAR"] { 
+          display: none; 
+        }
+      `);
+
+      // 🔹 Legacy BrandEmbassy configs
+      if (typeof brandembassy !== 'undefined') {
+        brandembassy('enableCloseIcon', true);
+        brandembassy('showCustomerAvatar');
       }
 
-      /* Fondo general del chat */
-      .cxone-chat-window {
-        background-color: #ffffff !important; /* blanco */
-      }
-
-      /* Barra superior del chat */
-      .cxone-chat-header {
-        background-color: #000000 !important; /* negra */
-        color: #ffffff !important; /* texto blanco */
-      }
-
-      /* Burbujas del agente */
-      .cxone-chat-bubble.agent {
-        background-color: #000000 !important; /* negra */
-        color: #ffffff !important; /* texto blanco */
-      }
-
-      /* Burbujas del cliente */
-      .cxone-chat-bubble.user {
-        background-color: #000000 !important; /* negra */
-        color: #ffffff !important; /* texto blanco */
-      }
-
-      /* Botón de cerrar (X) */
-      .cxone-chat-close-button {
-        display: block !important;
-        color: #ffffff !important;
-        font-size: 18px;
-        cursor: pointer;
-      }
-    `);
-
-  } else {
-    setTimeout(initCXone, 200);
+    } else {
+      setTimeout(initCXone, 200);
+    }
   }
-}
 
-// 🔹 Ejecutar inicialización
-initCXone();
+  // 🔹 Ejecutar inicialización
+  initCXone();
 
-    // 🔹 Cargar datos del cliente desde la URL
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      document.getElementById('clientName').innerText = params.get('name') || '';
-      document.getElementById('clientEmail').innerText = params.get('email') || '';
-      document.getElementById('clientPhone').innerText = params.get('phone') || '';
-      document.getElementById('clientDept').innerText = params.get('dept') || '';
+  // 🔹 Cargar datos del cliente desde la URL
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const fields = {
+      clientName: params.get('name') || '',
+      clientEmail: params.get('email') || '',
+      clientPhone: params.get('phone') || '',
+      clientDept: params.get('dept') || ''
+    };
+    Object.keys(fields).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerText = fields[id];
     });
-  </script>
+  });
+    </script>
 
 </body>
 </html>
+
 
 
 
