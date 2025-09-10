@@ -34,8 +34,6 @@
     h1 { color: #1e5fa3; margin-top: 20px; }
     p { color: #b3c7e6; }
 
-/* Chat will appear automatically */
-
     footer {
       margin-top: 80px;
       padding: 10px;
@@ -54,158 +52,76 @@
   </style>
 </head>
 <body>
-
   <header>
     <img src="CxOne.png" alt="CXone Logo" />
   </header>
 
   <h1>Welcome to our Support Chat</h1>
-  <div style="margin: 48px auto; max-width: 600px; background: rgba(30,95,163,0.12); border-radius: 18px; box-shadow: 0 2px 12px rgba(30,95,163,0.10); padding: 32px 24px; display: flex; align-items: center; gap: 24px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#1e5fa3" viewBox="0 0 24 24">
-      <path d="M12 2a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/>
-    </svg>
-    <div style="text-align: left;">
-      <h2 style="margin: 0 0 8px 0; color: #1e5fa3; font-size: 1.5em;">Need Help?</h2>
-      <p style="margin: 0; color: #e0e6ed; font-size: 1.1em;">
-        Our support team is ready to assist you anytime. Start the chat and receive personalized attention!
-      </p>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 - Chat CXone demo by Melissa A.
-  </footer>
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat CXone</title>
-  <!-- Google Fonts: Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: linear-gradient(135deg, #0d0d0d 60%, #142d4c 100%);
-      color: #e0e6ed;
-      text-align: center;
-      transition: background 0.6s;
-    }
-
-    header {
-      background: transparent;
-      padding: 32px 0 12px 0;
-      margin-bottom: 0;
-    }
-
-    header img {
-      max-height: 120px;
-      width: auto;
-      transition: transform 0.4s;
-    }
-    header img:hover {
-      transform: scale(1.05);
-    }
-
-    h1 { color: #1e5fa3; margin-top: 20px; }
-    p { color: #b3c7e6; }
-
-/* Chat will appear automatically */
-
-    footer {
-      margin-top: 80px;
-      padding: 10px;
-      font-size: 14px;
-      color: #7a8ca5;
-    }
-
-    .client-info {
-      margin-top: 24px;
-      color: #e0e6ed;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <img src="CxOne.png" alt="CXone Logo" />
-  </header>
-
-  <h1>Welcome to our Support Chat</h1>
-  <div style="margin: 48px auto; max-width: 600px; background: rgba(30,95,163,0.12); border-radius: 18px; box-shadow: 0 2px 12px rgba(30,95,163,0.10); padding: 32px 24px; display: flex; align-items: center; gap: 24px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#1e5fa3" viewBox="0 0 24 24">
-      <path d="M12 2a10 10 0 0 0-10 10v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3a2 2 0 0 1-2-2v-3a8 8 0 1 1 16 0v3a2 2 0 0 1-2 2v-3a1 1 0 0 0-1-1h-1a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3c0-5.523-4.477-10-10-10z"/>
-    </svg>
-    <div style="text-align: left;">
-      <h2 style="margin: 0 0 8px 0; color: #1e5fa3; font-size: 1.5em;">Need Help?</h2>
-      <p style="margin: 0; color: #e0e6ed; font-size: 1.1em;">
-        Our support team is ready to assist you anytime. Start the chat and receive personalized attention!
-      </p>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 - Chat CXone demo by Melissa A.
-  </footer>
 
   <!-- Contenedor del chat -->
-   <div>
-    <div id="chatContainer"></div>
+  <div id="chatContainer"></div>
+
+  <!-- Contenedor de datos del cliente -->
+  <div class="client-info">
+    <p>Name: <span id="clientName"></span></p>
+    <p>Email: <span id="clientEmail"></span></p>
+    <p>Phone: <span id="clientPhone"></span></p>
+    <p>Department: <span id="clientDept"></span></p>
   </div>
 
+  <footer>
+    © 2025 - Chat CXone demo by Melissa A.
+  </footer>
+
   <script>
-  // 🔹 Cargar script de CXone
-  (function(n,u){
-    window.CXoneDfo=n,
-    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},window[n].u=u,
-    e=document.createElement("script"),e.type="module",e.src=u+"?"+Math.round(Date.now()/1e3/3600),
-    document.head.appendChild(e)
+    // 🔹 Cargar script de CXone
+    (function(n,u){
+      window.CXoneDfo=n;
+      window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)};
+      window[n].u=u;
+      let e=document.createElement("script");
+      e.type="module";
+      e.src=u+"?"+Math.round(Date.now()/3600000);
+      document.head.appendChild(e);
     })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
-    cxone('init', '4847');
-    cxone('guide', 'init');
-    cxone('guide', 'startChatEntrypoint', 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe');
+    // 🔹 Configuración del chat
+    const targetSettings = {
+      channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe',
+      target: '#chatContainer',
+      locale: 'en',
+      defaultSkill: 'Mel_Chat_No_Agent'
+    };
 
-    });
+    // 🔹 Inicializar CXone
+    function initCXone() {
+      if (typeof cxone !== 'undefined') {
+        cxone('init', '4847');
 
-    // 🔹 Iniciar el entrypoint del chat
-    cxone('guide', 'startChatEntrypoint', 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe');
-// ✅ Aquí agregas el listener
-    cxone('on', 'chatReady', function() {
-      // Ocultar la activity bar
-      cxone('chat', 'setCustomCss', '[data-selector="ACTIVITY_BAR"] {display: none !important}');
-    });
-    
-   // 🔹 Legacy BrandEmbassy opcional
-    if (typeof brandembassy !== 'undefined') {
-      brandembassy('enableCloseIcon', true);
-      brandembassy('showCustomerAvatar');
+        cxone('guide', 'init', targetSettings);
+
+        // Iniciar chat en el entrypoint
+        cxone('guide', 'startChatEntrypoint', targetSettings.channelId);
+
+        // Personalización cuando el chat esté listo
+        cxone('on', 'chatReady', function() {
+          cxone('chat', 'setCustomCss', '[data-selector="ACTIVITY_BAR"] {display: none !important}');
+        });
+
+      } else {
+        setTimeout(initCXone, 200);
+      }
     }
+    initCXone();
 
-  } else {
-    setTimeout(initCXone, 200);
-  }
-}
-initCXone();
-    </script>
-
+    // 🔹 Cargar datos del cliente desde la URL
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById('clientName').innerText = params.get('name') || '';
+      document.getElementById('clientEmail').innerText = params.get('email') || '';
+      document.getElementById('clientPhone').innerText = params.get('phone') || '';
+      document.getElementById('clientDept').innerText = params.get('dept') || '';
+    });
+  </script>
 </body>
 </html>
-    </script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
