@@ -121,7 +121,7 @@
   function initCXone() {
     if (typeof cxone !== 'undefined') {
       cxone('init', '4847');
-      cxone('guide', 'init', targetSettings);
+      cxone('guide','init',{ channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe', target:'#chatContainer' });
 
      // 🔹 Aplicar CSS solo cuando el chat esté listo
     cxone('on', 'chatReady', function() {
@@ -176,6 +176,7 @@
 
 </body>
 </html>
+
 
 
 
