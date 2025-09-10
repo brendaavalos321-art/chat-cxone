@@ -117,19 +117,58 @@
     }
   };
 
-  // 🔹 Inicializar CXone
-  function initCXone() {
-    if (typeof cxone !== 'undefined') {
-      cxone('init', '4847');
-      cxone('guide','init', targetSettings);
+ // 🔹 Inicializar CXone
+function initCXone() {
+  if (typeof cxone !== 'undefined') {
+    cxone('init', '4847');
+    cxone('guide', 'init', targetSettings);
 
-      // Ocultar barra gris de actividad
-      cxone('chat','setCustomCss', '[data-selector="ACTIVITY_BAR"] { display: none; }');
-    } else {
-      setTimeout(initCXone, 200);
-    }
+    // 🔹 CSS personalizado unificado
+    cxone('chat', 'setCustomCss', `
+      /* Ocultar barra gris de actividad */
+      [data-selector="ACTIVITY_BAR"] { 
+        display: none; 
+      }
+
+      /* Fondo general del chat */
+      .cxone-chat-window {
+        background-color: #ffffff !important; /* blanco */
+      }
+
+      /* Barra superior del chat */
+      .cxone-chat-header {
+        background-color: #000000 !important; /* negra */
+        color: #ffffff !important; /* texto blanco */
+      }
+
+      /* Burbujas del agente */
+      .cxone-chat-bubble.agent {
+        background-color: #000000 !important; /* negra */
+        color: #ffffff !important; /* texto blanco */
+      }
+
+      /* Burbujas del cliente */
+      .cxone-chat-bubble.user {
+        background-color: #000000 !important; /* negra */
+        color: #ffffff !important; /* texto blanco */
+      }
+
+      /* Botón de cerrar (X) */
+      .cxone-chat-close-button {
+        display: block !important;
+        color: #ffffff !important;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    `);
+
+  } else {
+    setTimeout(initCXone, 200);
   }
-  initCXone();
+}
+
+// 🔹 Ejecutar inicialización
+initCXone();
 
     // 🔹 Cargar datos del cliente desde la URL
     document.addEventListener('DOMContentLoaded', () => {
@@ -143,5 +182,6 @@
 
 </body>
 </html>
+
 
 
