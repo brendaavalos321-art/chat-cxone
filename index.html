@@ -82,49 +82,54 @@
   </div>
 
   <script>
-    // 🔹 Cargar script de CXone
-   (function(n,u){
+   // 🔹 Cargar script de CXone
+  (function(n,u){
     window.CXoneDfo=n,
-    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},window[n].u=u,
-    e=document.createElement("script"),e.type="module",e.src=u+"?"+Math.round(Date.now()/1e3/3600),
-    document.head.appendChild(e)
-    })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
+    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},
+    window[n].u=u;
+    let e=document.createElement("script");
+    e.type="module";
+    e.src=u+"?"+Math.round(Date.now()/1e3/3600);
+    document.head.appendChild(e);
+  })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
-    cxone('init', '4847', {
-        rulesEngine: false,
-        analyticsEvents: false
-    });
-    cxone('guide', 'init', '3f35696a-7ee7-4e7b-8db9-b76d1a6c64de');
+  // 🔹 Configuración inicial
+  cxone('init', '4847', {
+    rulesEngine: false,
+    analyticsEvents: false
+  });
 
-    // 🔹 Inicializar CXone
-    const targetSettings = {
-      channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe',
-      target: '#chatContainer',
-      locale: 'en',
-      defaultSkill: 'customer_service',
-      hours: { open: '06:00', close: '21:00', timezone: 'EST' },
-      labels: {
-        customerName: '{firstName}',
-        customerEmail: '{email}',
-        customerPhone: '{phone}',
-        customerDepartment: '{department}'
-      },
-      apiEndpoints: {
-        customerLookup: 'https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz'
-      }
-    };
-
-    function initCXone() {
-      if (typeof cxone !== 'undefined') {
-        cxone('init', '4847');
-        cxone('guide','init', targetSettings);
-        // hide gray activity bar
-        cxone('chat','setCustomCss', '[data-selector="ACTIVITY_BAR"] { display: none; }');
-      } else {
-        setTimeout(initCXone, 200);
-      }
+  // 🔹 Target Settings JSON
+  const targetSettings = {
+    channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe',
+    target: '#chatContainer',   // dónde se embebe el chat
+    locale: 'en',
+    defaultSkill: 'customer_service',
+    hours: { open: '06:00', close: '21:00', timezone: 'EST' },
+    labels: {
+      customerName: '{firstName}',
+      customerEmail: '{email}',
+      customerPhone: '{phone}',
+      customerDepartment: '{department}'
+    },
+    apiEndpoints: {
+      customerLookup: 'https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz'
     }
-    initCXone();
+  };
+
+  // 🔹 Inicializar CXone
+  function initCXone() {
+    if (typeof cxone !== 'undefined') {
+      cxone('init', '4847');
+      cxone('guide','init', targetSettings);
+
+      // Ocultar barra gris de actividad
+      cxone('chat','setCustomCss', '[data-selector="ACTIVITY_BAR"] { display: none; }');
+    } else {
+      setTimeout(initCXone, 200);
+    }
+  }
+  initCXone();
 
     // 🔹 Cargar datos del cliente desde la URL
     document.addEventListener('DOMContentLoaded', () => {
@@ -138,4 +143,5 @@
 
 </body>
 </html>
+
 
