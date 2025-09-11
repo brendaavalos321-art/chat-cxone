@@ -65,35 +65,33 @@
     © 2025 - Chat CXone demo by Melissa A.
   </footer>
 
-<!-- Contenedor del chat -->
-<div>
-  <div id="chatContainer"></div>
-</div>
+<!-- Contenedor donde se mostrará el chat -->
+<div id="chatContainer"></div>
 
 <script>
-  // 🔹 Cargar script de CXone
+  // 🔹 Cargar loader de CXone
   (function(n,u){
-    window.CXoneDfo=n,
-    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)},
+    window.CXoneDfo=n;
+    window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)};
     window[n].u=u;
-    let e=document.createElement("script");
-    e.type="module";
-    e.src=u+"?"+Math.round(Date.now()/1e3/3600);
+    let e = document.createElement("script");
+    e.type = "module";
+    e.src = u + "?" + Math.round(Date.now()/1e3/3600);
     document.head.appendChild(e);
   })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
-  // 🔹 Configuración del chat
+  // 🔹 Configuración del chat con tu info
   const targetSettings = {
-    channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe', // tu canal digital
-    target: '#chatContainer', // dónde se mostrará el chat
+    channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe', // Channel ID real
+    target: '#chatContainer',
     locale: 'en',
-    defaultSkill: 'Mel_Chat_No_Agent'
+    defaultSkill: 'Mel_Chat_No_Agent' // Skill por defecto
   };
 
-  // 🔹 Inicializar CXone correctamente
+  // 🔹 Inicializar CXone de forma segura
   function initCXone() {
     if (typeof cxone !== 'undefined') {
-      cxone('init', '4847'); // tu tenantId
+      cxone('init', '4847'); // Tenant ID real
       cxone('guide', 'init', targetSettings);
 
       // 🔹 Ocultar overlay (activity bar)
@@ -104,7 +102,9 @@
   }
   initCXone();
 </script>
+
 </body>
 </html>
+
 
 
