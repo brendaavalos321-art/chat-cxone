@@ -74,25 +74,33 @@
     window.CXoneDfo=n;
     window[n]=window[n]||function(){(window[n].q=window[n].q||[]).push(arguments)};
     window[n].u=u;
-    let e = document.createElement("script");
-    e.type = "module";
-    e.src = u + "?" + Math.round(Date.now()/1e3/3600);
+    let e=document.createElement("script");
+    e.type="module";
+    e.src=u+"?"+Math.round(Date.now()/1e3/3600);
     document.head.appendChild(e);
   })('cxone','https://web-modules-de-na1.niceincontact.com/loader/1/loader.js');
 
-  // 🔹 Configuración del chat con tu info
+  // 🔹 Configuración con tu nuevo canal
   const targetSettings = {
-    channelId: 'chat_b841f8b5-b0cc-42a0-b537-733f33351ebe', // Channel ID real
+    channelId: 'chat_3f35696a-7ee7-4e7b-8db9-b76d1a6c64de', // tu channelId
     target: '#chatContainer',
-    locale: 'en',
-    defaultSkill: 'customer_service_Melichat' // Skill por defecto
+    locale: 'es',
+    defaultSkill: 'customer_service_melichat'
   };
 
-  // 🔹 Inicializar CXone de forma segura
   function initCXone() {
     if (typeof cxone !== 'undefined') {
-      cxone('init', '4847'); // Tenant ID real
+      // 1) Inicializa con tu Brand ID
+      cxone('init', '4847', {
+        rulesEngine: false,
+        analyticsEvents: false
+      });
+
+      // 2) Inicializa el widget con settings
       cxone('guide', 'init', targetSettings);
+
+      // 3) Arranca el entrypoint del canal
+      cxone('guide', 'startChatEntrypoint', targetSettings.channelId);
 
       // 🔹 Ocultar overlay (activity bar)
       cxone('chat','setCustomCss', '[data-selector="ACTIVITY_BAR"] {display: none;}');
@@ -105,6 +113,7 @@
 
 </body>
 </html>
+
 
 
 
